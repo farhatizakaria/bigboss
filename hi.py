@@ -20,3 +20,16 @@ print(ip_binary,mask_binary)
 
 # Now we need to perform the AND operation
 NetworkIP = ['','','','']
+
+for byte in range(4):
+    for bit in range(8):
+        NetworkIP[byte] += str(int(ip_binary[byte][bit]) and int(mask_binary[byte][bit]))
+
+#print(NetworkIP)
+NetworkAddress = []
+for byte in NetworkIP:
+    NetworkAddress.append(str(toDecimal(byte)))
+print(NetworkAddress)
+
+Network = ".".join(NetworkAddress)
+print(Network)
